@@ -1,0 +1,363 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.contenedor {
+  background-color: white;
+  text-align: center;
+  box-shadow: 10px 10px 10px #72b9a9;
+  border-radius: 5px;
+  width: 50vw;
+  max-height: 65vh;
+  overflow-y: auto;
+  position: absolute;
+  z-index: 15;
+  padding: 10px;
+}
+
+.principal-container {
+
+  width: 100vw; 
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.custom-shape-divider-bottom-1725114074 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1725114074 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 239px;
+}
+
+.custom-shape-divider-bottom-1725114074 .shape-fill {
+  fill: #72B9A9;
+}
+
+.titulo{
+  text-align: center;
+  font-weight: bold;
+  color: #72B9A9;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0px;
+  font-size: 50px;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: #72B9A9;
+}
+
+.icon-pet{
+  margin: 5px;
+  font-size: 40px;
+}
+
+.ButtonNavPDF{
+  cursor: pointer;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  background-color: #7e1818;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.ButtonNavPDF:hover {
+  font-size: 40px;
+  transition: 0.3s;
+}
+
+.ButtonNav {
+  cursor: pointer;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  background-color: #72B9A9;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.ButtonNav:hover {
+  font-size: 40px;
+  transition: 0.3s;
+}
+
+.ButtonNavEdit{
+  cursor: pointer;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  background-color: #ffdc17;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+
+.ButtonNavEdit:hover {
+  font-size: 40px;
+  transition: 0.3s;
+}
+
+.ButtonNavRegresar{
+  cursor: pointer;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 35px;
+  background-color: white;
+  color: #72B9A9;
+  padding: 5px 10px 5px 10px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.ButtonNavRegresar:hover {
+  font-size: 40px;
+  transition: 0.3s;
+}
+
+.malla {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+}
+
+.columnaIzquierda {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  align-items: center;
+  padding: 10px;
+}
+
+.columnaDerecha {
+  display: flex;
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+  padding: 10px;
+}
+
+.input {
+  padding: 5px;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 50px;
+  border-color: black;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input:hover{
+  border-color: #72b9a9;
+}
+
+.btn-color{
+  cursor: pointer;
+  background-color: #72b9a9;
+  padding: 10px;
+  border-radius: 50px;
+  border-color: #72b9a9;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  width: 100px;
+}
+
+.btn-color:hover{
+  width: 150px;
+}
+
+.fullscreenCard {
+  background-color: #72B9A9;
+  padding: 30px;
+  text-align: center;
+  width: 100vw;
+  height: 83vh;
+  overflow-y: auto;
+}
+
+.CenterTable{
+  display: flex;
+  justify-content: center;
+}
+
+.Table{
+  background-color: white;
+  border-radius: 20px;
+}
+
+.btn-edit{
+  cursor: pointer;
+  background-color: #ffdc17;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
+
+.btn-edit:hover{
+  width: 35px;
+  height: 35px;
+  transition: 0.3s;
+}
+
+.btn-delete{
+  cursor: pointer;
+  background-color: #c11612;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
+
+.btn-delete:hover{
+  width: 35px;
+  height: 35px;
+  color: white;
+  transition: 0.3s;
+}
+
+.BackgroundOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color negro con opacidad */
+  z-index: 10; /* Asegura que esté sobre todos los demás elementos */
+  pointer-events: none; /* Permite que los clics pasen a través de este elemento */
+  transition: opacity 0.3s ease; /* Agrega una transición suave */
+}
+
+.InputContainer{
+  align-items: center;
+  justify-content: center;
+}
+
+.ContenedorForms {
+  position: fixed; /* Asegura que la modal esté fija en la pantalla */
+  top: 50%; /* Posiciona la modal verticalmente en el centro */
+  left: 50%; /* Posiciona la modal horizontalmente en el centro */
+  /* Ajusta el posicionamiento para centrar completamente */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 20; /* Asegura que esté por encima del fondo de la modal */
+  width: 100%; /* Ajusta el tamaño según sea necesario */
+  max-width: 800px; /* Define un tamaño máximo */
+}
+
+.ContainerFull{
+  background-size: cover; 
+  background-position: center; 
+  width: 100vw; 
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.btn-color-cancel{
+  cursor: pointer;
+  background-color: #c11612;
+  padding: 10px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  width: 100px;
+}
+
+.select{
+  background-color: white;
+  padding: 5px;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 50px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.select:hover{
+  border-color: #72b9a9;
+}
+
+.opcion{
+  padding-left: 20px;
+}
+
+.ReportTable {
+  border-collapse: collapse;
+  background-color: white;
+  border: 3px solid rgb(0, 0, 0);
+}
+
+.ReportTable th, .ReportTable td {
+  padding: 8px;
+  text-align: center;
+  border: 3px solid rgb(0, 0, 0);
+}
+
+.centerxml{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedorxml{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xml-container{
+  overflow-y: auto;
+ 
+}
+
+.centerbuttonxml{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
