@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Principal from "../pages/Principal";
 import Personas from "../pages/Personas/Personas";
 import Estructura from "../pages/Estructura/Estructura";
-import Eliminar from "../pages/Eliminar/Eliminar";
+import EliminarNivel from "../pages/Eliminar/EliminarNivel";
 import CrearPersonas from "../pages/Personas/CrearPersonas";
 import VerPersonas from "../pages/Personas/VerPersonas";
 import ConsultaRelaciones from "../pages/Relaciones/ConsultaRelaciones";
@@ -21,7 +21,7 @@ function AppRoutes() {
 
                 <Route exact path="/relaciones" element={<ConsultaRelaciones></ConsultaRelaciones>}></Route>
                 <Route exact path="/estructura" element={<Estructura></Estructura>}></Route>
-                <Route exact path="/eliminarNiveles" element={<Eliminar></Eliminar>}></Route>
+                <Route exact path="/eliminarNiveles" element={<EliminarNivel></EliminarNivel>}></Route>
             </Routes>
         </AnimatePresence>
     </>

@@ -448,3 +448,16 @@ code {
   font-size: 20px;
   transition: 0.3s;
 }
+
+/* contenedor visible para react-d3-tree */
+.TreeWrapper {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-top: 8px;
+  height: 60vh;           /* altura necesaria para que se vea el árbol */
+  width: 100%;
+  overflow: auto;         /* por si el árbol crece mucho */
+  position: relative;
+}
+
