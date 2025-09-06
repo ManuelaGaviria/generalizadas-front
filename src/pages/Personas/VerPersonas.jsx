@@ -160,7 +160,6 @@ function VerPersonas() {
     }
 
     async function editPersona(id) {
-        console.log(id)
         const cedula = document.getElementById('personaCedula').value;
         const nombre = document.getElementById('personaNombre').value;
         const edad = document.getElementById('personaEdad').value;
