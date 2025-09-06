@@ -15,9 +15,7 @@ function Personas() {
                     </div>
                     <div>
                         <div><ButtonLink destino="/crearPersonas" clase="ButtonNav">Registrar</ButtonLink></div>
-                        <div><ButtonLink destino="/eliminarPersonas" clase="ButtonNav">Eliminar</ButtonLink></div>
-                        <div><ButtonLink destino="/actualizarPersonas" clase="ButtonNav">Actualizar</ButtonLink></div>
-                        <div><ButtonLink destino="/verPersonas" clase="ButtonNav">Ver árbol</ButtonLink></div>
+                        <div><ButtonLink destino="/verPersonas" clase="ButtonNav">Ver personas</ButtonLink></div>
                         <div><ButtonLink destino="/" clase="ButtonNavRegresar">Regresar</ButtonLink></div>
                     </div>
                 </Contenedor>

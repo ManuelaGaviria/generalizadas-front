@@ -26,12 +26,12 @@ function SelectEdit({ titulo, opciones, eventoCambio, valorInicial, id }) {
                     id={id}
                     className="select"
                     onChange={handleChange}
-                    value={valor} // Establecer el valor del estado local aquí
+                    value={valor} 
                 >
                     <option value="" disabled>Seleccione uno</option>
                     {opciones.map((item) => (
                         <option value={item.nombre} key={item.id}>
-                            {item.nombre}
+                            {item.id + " - " +item.nombre}
                         </option>
                     ))}
                 </select>

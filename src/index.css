@@ -208,19 +208,24 @@ code {
   background-color: #72B9A9;
   padding: 30px;
   text-align: center;
-  width: 100vw;
-  height: 83vh;
+
+  /* en vez de ocupar todo el viewport */
+  width: 100%;
+  max-width: 1100px;     /* ajusta al gusto */
+  min-height: 70vh;
+
+  border-radius: 20px;   /* opcional, más bonito */
   overflow-y: auto;
 }
 
 .CenterTable{
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 
 .Table{
   background-color: white;
   border-radius: 20px;
+  margin: 0 auto;          /* asegura centrado horizontal */
 }
 
 .btn-edit{
@@ -292,10 +297,11 @@ code {
   background-size: cover; 
   background-position: center; 
   width: 100vw; 
-  height: 100vh; 
+  min-height: 100vh; 
   display: flex; 
   justify-content: center; 
-  align-items: center;
+  align-items: flex-start; /* deja el título arriba y el card debajo */
+  padding: 24px 12px;      /* separa del borde superior */
 }
 
 .btn-color-cancel{

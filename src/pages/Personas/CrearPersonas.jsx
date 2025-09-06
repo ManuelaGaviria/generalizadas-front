@@ -2,53 +2,88 @@ import Contenedor from '../../components/Contenedor'
 import { FaUserAlt } from "react-icons/fa";
 import Button from '../../components/Button';
 import LabelInput from '../../components/LabelInput';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import GeneralContext from '../../Context/GeneralContext';
 import Swal from 'sweetalert2';
-import { fetchBody } from '../../utils/fetch';
+import { fetchBody, fetchGet } from '../../utils/fetch';
 import { useNavigate } from 'react-router-dom';
 import ButtonLink from '../../components/ButtonLink';
+import Select from '../../components/Select';
 
 function CrearPersonas() {
-    const { nombre, cedula, edad, cedulaPadre, changeNombre, changeCedula, changeEdad, changeCedulaPadre } = useContext(GeneralContext)
+    const { nombre, cedula, edad, changeNombre, changeCedula, changeEdad } = useContext(GeneralContext);
     const navigate = useNavigate();
-    async function CrearPersonas() {
-        if (nombre === "" || cedula === "" || edad === "") {
+
+    const [personasSelect, setPersonasSelect] = useState([]);
+    const [personaSeleccionada, setPersonaSeleccionada] = useState(""); // cédula del padre (string)
+
+    useEffect(() => {
+        const obtenerPersonas = async () => {
+            try {
+                const r = await fetchGet('/personas');
+
+                if (r?.exito && Array.isArray(r.lista)) {
+                    const opciones = r.lista.map(p => ({
+                        id: p.id,     
+                        nombre: p.nombre
+                    }));
+                    setPersonasSelect(opciones);
+                } else {
+                    setPersonasSelect([]); 
+                }
+            } catch {
+                Swal.fire({ icon: "error", title: "Error", text: "Error al listar personas" });
+            }
+        };
+        obtenerPersonas();
+    }, []);
+
+    const handleChangePer = (e) => {
+        setPersonaSeleccionada(e.target.value); 
+    };
+
+    async function handleCrearPersona() {
+        if (!nombre || !cedula || !edad) {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Por favor llena todos los campos.",
-                customClass: {
-                    confirmButton: 'btn-color'
-                },
+                customClass: { confirmButton: 'btn-color' },
                 buttonsStyling: false
             });
+            return;
+        }
+
+        const payload = {
+            // Si no eliges padre, se envía null para intentar crear la raíz
+            cedulaPadre: personaSeleccionada ? Number(personaSeleccionada) : null,
+            nombre,
+            cedula: Number(cedula),
+            edad: Number(edad),
+        };
+
+        const respuesta = await fetchBody('/insertar', 'POST', payload); // o '/arbol/insertar' según tu baseURL
+        if (respuesta.exito) {
+            Swal.fire({
+                icon: "success",
+                title: "Persona creada con éxito!",
+                customClass: { confirmButton: 'btn-color' },
+                buttonsStyling: false
+            });
+            navigate("/personas");
         } else {
-            const payload = {
-                cedulaPadre: cedulaPadre ? Number(cedulaPadre) : null,
-                nombre,
-                cedula: Number(cedula),
-                edad: Number(edad),
-            };
-            const respuesta = await fetchBody('/insertar', 'POST', payload);
-            console.log(respuesta);
-            if (respuesta.exito) {
-                Swal.fire({
-                    icon: "success",
-                    title: "Persona creada con éxito!",
-                    customClass: {
-                        confirmButton: 'btn-color'
-                    },
-                    buttonsStyling: false
-                });
-                navigate("/personas");
-            }
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: respuesta.mensaje ?? "No se pudo crear la persona."
+            });
         }
     }
 
+    const botonDeshabilitado = !nombre || !cedula || !edad; // opcional
+
     return (
         <div>
-
             <div className='principal-container'>
                 <Contenedor animate={true}>
                     <div className='flex'>
@@ -57,16 +92,27 @@ function CrearPersonas() {
                         <FaUserAlt className='icon-pet' />
                     </div>
                     <div>
-                        <LabelInput texto="Nombre" eventoCambio={changeNombre}></LabelInput>
-                        <LabelInput texto="Cédula" tipo="number" eventoCambio={changeCedula}></LabelInput>
-                        <LabelInput texto="Edad" tipo="number" eventoCambio={changeEdad}></LabelInput>
-                        <LabelInput texto="Cédula Padre" eventoCambio={changeCedulaPadre}></LabelInput>
-                        <Button clase="ButtonNav" eventoClick={CrearPersonas}>Crear</Button>
+                        <LabelInput texto="Nombre" eventoCambio={changeNombre} />
+                        <LabelInput texto="Cédula" tipo="number" eventoCambio={changeCedula} />
+                        <LabelInput texto="Edad" tipo="number" eventoCambio={changeEdad} />
+
+                        {/* Selección de padre (opcional). value controlado. */}
+                        <Select
+                            titulo="Seleccionar padre (opcional)"
+                            opciones={personasSelect}
+                            eventoCambio={handleChangePer}
+                            value={personaSeleccionada}
+                            disabled={personasSelect.length === 0} // si no hay personas aún
+                        />
+
+                        <Button clase="ButtonNav" eventoClick={handleCrearPersona} disabled={botonDeshabilitado}>
+                            Crear
+                        </Button>
                         <ButtonLink destino="/personas" clase="ButtonNavRegresar">Regresar</ButtonLink>
                     </div>
                 </Contenedor>
-
             </div>
+
             <div class="custom-shape-divider-bottom-1725114074">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
@@ -75,9 +121,7 @@ function CrearPersonas() {
                 </svg>
             </div>
         </div>
-    )
+    );
 }
 
-export default CrearPersonas
-
-
+export default CrearPersonas;
