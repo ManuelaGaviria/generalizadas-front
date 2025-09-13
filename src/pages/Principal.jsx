@@ -20,6 +20,7 @@ function Principal() {
                         <div><ButtonLink destino="/relaciones" clase="ButtonNav">Consultas Relaciones Familiares</ButtonLink></div>
                         <div><ButtonLink destino="/estructura" clase="ButtonNav">Consultas Estructura del árbol</ButtonLink></div>
                         <div><ButtonLink destino="/eliminarNiveles" clase="ButtonNav">Eliminación de niveles</ButtonLink></div>
+                        <div><ButtonLink destino="/verArbol" clase="ButtonNav">Ver árbol</ButtonLink></div>
                     </div>
                 </Contenedor>
 

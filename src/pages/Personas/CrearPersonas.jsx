@@ -70,7 +70,7 @@ function CrearPersonas() {
                 customClass: { confirmButton: 'btn-color' },
                 buttonsStyling: false
             });
-            navigate("/personas");
+            navigate("/verArbol");
         } else {
             Swal.fire({
                 icon: "error",

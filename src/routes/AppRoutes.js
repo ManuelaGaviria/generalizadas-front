@@ -7,6 +7,7 @@ import EliminarNivel from "../pages/Eliminar/EliminarNivel";
 import CrearPersonas from "../pages/Personas/CrearPersonas";
 import VerPersonas from "../pages/Personas/VerPersonas";
 import ConsultaRelaciones from "../pages/Relaciones/ConsultaRelaciones";
+import VerArbol from "../pages/VerArbol";
 
 function AppRoutes() {
     const location = useLocation();
@@ -18,6 +19,7 @@ function AppRoutes() {
                 <Route exact path="/personas" element={<Personas></Personas>}></Route>
                 <Route exact path="/crearPersonas" element={<CrearPersonas></CrearPersonas>}></Route>
                 <Route exact path="/verPersonas" element={<VerPersonas></VerPersonas>}></Route>
+                <Route exact path="/verArbol" element={<VerArbol></VerArbol>}></Route>
 
                 <Route exact path="/relaciones" element={<ConsultaRelaciones></ConsultaRelaciones>}></Route>
                 <Route exact path="/estructura" element={<Estructura></Estructura>}></Route>

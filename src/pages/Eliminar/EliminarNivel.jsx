@@ -195,13 +195,13 @@ function EliminarNivel() {
           <div ref={treeRef} className="TreeWrapper">
             {treeData ? (
               <Tree
-                data={treeData}                               // objeto o array, ambos valen
+                data={treeData}                               
                 translate={{ x: (size.w ?? 800) / 2, y: 60 }}
                 dimensions={{ width: size.w, height: size.h }}
                 orientation="vertical"
                 separation={{ siblings: 1, nonSiblings: 1.5 }}
                 pathFunc="elbow"
-                renderCustomNodeElement={renderNode}          // <- aquí está la magia
+                renderCustomNodeElement={renderNode}          
               />
             ) : (
               <div style={{ textAlign: "center", paddingTop: 24 }}>
